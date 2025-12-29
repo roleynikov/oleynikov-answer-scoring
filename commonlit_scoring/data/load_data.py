@@ -1,9 +1,10 @@
 from pathlib import Path
-import subprocess
+from dvc.repo import Repo
 
 
 def download_data(data: Path) -> None:
     if data.exists() and any(data.iterdir()):
         return
 
-    subprocess.run(["dvc", "pull"], check=True)
+    repo = Repo()
+    repo.pull()

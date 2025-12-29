@@ -1,9 +1,8 @@
+import hydra
+from omegaconf import DictConfig
 from commonlit_scoring.training.train import train
 
 
-def main() -> None:
-    train()
-
-
-if __name__ == "__main__":
-    main()
+@hydra.main(version_base=None, config_path="configs", config_name="config")
+def main(cfg: DictConfig) -> None:
+    train(cfg)
