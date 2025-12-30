@@ -1,1 +1,2 @@
-model_name: bert-base-uncased
+encoder_name: sentence-transformers/all-MiniLM-L6-v2
+lr: 2e-5

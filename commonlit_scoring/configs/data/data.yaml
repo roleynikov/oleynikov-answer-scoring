@@ -1,1 +1,3 @@
-data_dir: ../../data/raw
+train_path: data/raw/train.csv
+max_length: 256
+data_dir: data/raw
