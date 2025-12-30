@@ -3,4 +3,6 @@ defaults:
   - model: model
   - trainer: trainer
   - logging: logging
+  - infer: infer
+mode: train
 project_name: commonlit-scoring

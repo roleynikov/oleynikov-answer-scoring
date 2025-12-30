@@ -3,7 +3,7 @@ import numpy as np
 import pytorch_lightning as pl
 from torch import nn
 from sklearn.metrics import mean_squared_error
-from transformers import AutoModel
+from transformers import AutoModel, AutoTokenizer
 
 
 def compute_mcrmse(preds, targets):
@@ -20,6 +20,7 @@ class CommonLitModel(pl.LightningModule):
         super().__init__()
         self.save_hyperparameters()
         self.encoder = AutoModel.from_pretrained(cfg.model.encoder_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(cfg.model.encoder_name)
         hidden_size = self.encoder.config.hidden_size
         self.regressor = nn.Linear(hidden_size, 2)
         self.loss_fn = nn.MSELoss()
@@ -44,3 +45,17 @@ class CommonLitModel(pl.LightningModule):
 
     def configure_optimizers(self):
         return torch.optim.AdamW(self.parameters(), lr=self.lr)
+
+    def predict(self, text: str) -> float:
+        inputs = self.tokenizer(
+            text,
+            truncation=True,
+            padding="max_length",
+            max_length=256,
+            return_tensors="pt",
+        )
+        outputs = self.encoder(
+            input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"]
+        )
+        pooled = outputs.last_hidden_state[:, 0]
+        return self.regressor(pooled)

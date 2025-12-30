@@ -1,0 +1,2 @@
+checkpoint_path: checkpoints/best.ckpt
+output_path: predictions.csv
