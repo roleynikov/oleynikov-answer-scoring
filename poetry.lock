@@ -1442,6 +1442,26 @@ docs = ["mkdocs (>=1.5.2,<2)", "mkdocs-gen-files (>=0.5.0,<1)", "mkdocs-material
 tests = ["pytest (>=7,<9)", "pytest-celery (<1)", "pytest-cov (>=4.1.0)", "pytest-mock", "pytest-rerunfailures", "pytest-sugar", "pytest-test-utils (>=0.0.6)"]
 
 [[package]]
+name = "dvc-webdav"
+version = "3.0.1"
+description = "webdav plugin for dvc"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "dvc_webdav-3.0.1-py3-none-any.whl", hash = "sha256:e7ad8d1d1a1cb04505752a71474d183f934a493acc5deb07a72530e6cfd03448"},
+    {file = "dvc_webdav-3.0.1.tar.gz", hash = "sha256:3c0d04afb0985a2c156f0b719f4b9437ce4acd346647d8f6fee043b5e917c76e"},
+]
+
+[package.dependencies]
+dvc = "*"
+webdav4 = ">=0.9.3"
+
+[package.extras]
+dev = ["dvc-webdav[tests]", "mypy (==1.19.0)"]
+tests = ["cheroot (>=8.6,<12)", "dvc[testing]", "pytest (>=7,<9)", "pytest-cov (>=4.1.0)", "pytest-mock (>=3.15.1,<4)", "pytest-xdist (>=3.2)", "wsgidav (>=3,<5)"]
+
+[[package]]
 name = "entrypoints"
 version = "0.4"
 description = "Discover and load entry points from installed packages."
@@ -5968,6 +5988,31 @@ files = [
 ]
 
 [[package]]
+name = "webdav4"
+version = "0.10.0"
+description = "WebDAV client library with an fsspec-based filesystem and a CLI"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "webdav4-0.10.0-py3-none-any.whl", hash = "sha256:8f915d72483e572089a3af0a2ad20c7e12d04eee9b9134eb718dbfa37af221d8"},
+    {file = "webdav4-0.10.0.tar.gz", hash = "sha256:387da6f0ee384e77149dddd9bcfd434afa155882f6c440a529a7cb458624407f"},
+]
+
+[package.dependencies]
+httpx = ">=0.20,<1"
+python-dateutil = ">=2.8.1"
+
+[package.extras]
+all = ["fsspec (>=2021.7)", "httpx[http2] (>=0.20,<1)"]
+dev = ["cheroot", "colorama", "fsspec (>=2021.7)", "furo (==2024.5.6)", "httpx[http2] (>=0.20,<1)", "mypy (==1.10.1)", "myst-parser (>=3,<4)", "pre-commit", "pytest", "pytest-cov", "pytest-xdist", "sphinx (>=7,<8)", "sphinx-copybutton (==0.5.2)", "types-colorama", "types-pkg-resources", "types-python-dateutil", "typing-extensions", "wsgidav"]
+docs = ["furo (==2024.5.6)", "myst-parser (>=3,<4)", "sphinx (>=7,<8)", "sphinx-copybutton (==0.5.2)"]
+fsspec = ["fsspec (>=2021.7)"]
+http2 = ["httpx[http2] (>=0.20,<1)"]
+qa = ["mypy (==1.10.1)", "pre-commit", "types-colorama", "types-pkg-resources", "types-python-dateutil"]
+tests = ["cheroot", "colorama", "pytest", "pytest-cov", "pytest-xdist", "typing-extensions", "wsgidav"]
+
+[[package]]
 name = "werkzeug"
 version = "3.1.4"
 description = "The comprehensive WSGI web application library."
@@ -6321,4 +6366,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.15"
-content-hash = "bac6b27cd76c193f21cf892f6264902d44597664112584fce1913ab7ec301f03"
+content-hash = "f58b55876e970e3040f47339e6ebf554b6529b8fa34e61a27fe8dc4c6918bfd2"

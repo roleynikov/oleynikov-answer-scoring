@@ -1,4 +1,4 @@
-# commonlit-scoring
+# oleynikov-answer-scoring
 
 Задача - разработать модель машинного обучения, которая сможет оценивать навыки ответа школьников на вопросы, оценивая содержание ответа и формулировку ответа . Задача призвана облегчить процесс обучения, автоматизируя оценку навыков неоднострочного ответа на вопрос.
 
@@ -11,7 +11,7 @@
 
 ```bash
 git clone https://github.com/roleynikov/oleynikov-answer-scoring.git
-cd commonlit-scoring
+cd oleynikov-answer-scoring
 ```
 
 ### 2. Установка зависимостей
